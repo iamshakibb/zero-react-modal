@@ -1,5 +1,5 @@
 {
-  "name": "@iamshakibb/zero-react-modal",
+  "name": "zero-react-modal",
   "version": "1.5.0",
   "description": "Zero react modal is a react modal component library.",
   "scripts": {
@@ -7,10 +7,22 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "keywords": [
-    "react modal",
-    "modal"
+  "tags": [
+    "react",
+    "modal",
+    "dialog"
   ],
+  "keywords": [
+    "react",
+    "react-component",
+    "modal",
+    "dialog"
+  ],
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamshakibb/zero-react-modal"
+  },
   "author": "Shihabun Shakib",
   "license": "MIT",
   "devDependencies": {
