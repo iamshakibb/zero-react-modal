@@ -1,6 +1,6 @@
 {
   "name": "@iamshakibb/zero-react-modal",
-  "version": "0.0.1",
+  "version": "1.5.0",
   "description": "Zero react modal is a react modal component library.",
   "scripts": {
     "rollup": "rollup -c",
