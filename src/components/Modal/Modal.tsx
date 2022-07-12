@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.css';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -9,6 +9,29 @@ type props = {
 };
 
 const Modal: React.FC<props> = ({ children, isOpen, hide }) => {
+  let modalContentRef = useRef<HTMLDivElement>(null);
+
+  /***
+   * Handle outside click fuction
+   * 
+    This function will set the isOpen 
+    state to false if user click outside 
+    of the modal content.
+  ***/
+  const handleOutSideClick = (e: any) => {
+    if (!modalContentRef.current?.contains(e.target)) {
+      hide(false);
+    }
+  };
+
+  useEffect(() => {
+    document?.addEventListener('mousedown', handleOutSideClick);
+
+    // removing the event listener
+    return () => {
+      document?.removeEventListener('mousedown', handleOutSideClick);
+    };
+  });
   return (
     <AnimatePresence>
       {isOpen && (
@@ -28,7 +51,6 @@ const Modal: React.FC<props> = ({ children, isOpen, hide }) => {
               delay: 0.2,
             },
           }}
-          onClick={() => hide(false)}
           className="modal-backdrop"
         >
           <motion.div
@@ -46,6 +68,7 @@ const Modal: React.FC<props> = ({ children, isOpen, hide }) => {
               },
             }}
             className="modal-wrapper"
+            ref={modalContentRef}
           >
             <div className="modal-content">{children}</div>
           </motion.div>
