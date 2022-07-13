@@ -3,7 +3,7 @@ import './style.css';
 import { AnimatePresence, motion } from 'framer-motion';
 
 type props = {
-  children: JSX.Element;
+  children: React.ReactNode;
   isOpen: boolean;
   hide: React.Dispatch<React.SetStateAction<boolean>>;
 };
